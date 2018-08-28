@@ -1,0 +1,22 @@
+<div *ngIf="this.filterService.showSearchComponent == false">
+  <div class="box">
+
+    <h3>Artists</h3>
+
+    <table class="table table-striped ">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Artist</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let artist of Artists; let i = index">
+        <td>{{i+1}}</td>
+        <td routerLink="/album/{{artist.artist}}" class="pointer"> {{artist.artist}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

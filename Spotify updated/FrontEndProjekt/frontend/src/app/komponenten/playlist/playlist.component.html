@@ -1,0 +1,39 @@
+<div *ngIf="this.filterService.showSearchComponent == false">
+  <div class="box">
+    <article class="trackInfoBox">
+      <div class="infoText">
+        <h2> {{name}}</h2> <!--aendern-->
+      </div>
+    </article>
+    <div>
+      <table class="table table-striped ">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th></th>
+          <th>Song</th>
+          <th>Album</th>
+          <th>Artist</th>
+          <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let track of filtered; let i = index">
+          <td>{{i +1}}</td>
+          <td (click)="playthissong(track)" class="pointer">
+            <div class="glyphicon glyphicon-play-circle"></div>
+          </td>
+          <td >{{track.title}}</td>
+          <td class="pointer" routerLink="/song/{{track.album}}">{{track.album}}</td>
+          <td class="pointer" routerLink="/song/{{track.artist}}">{{track.artist}}</td>
+          <td>{{track.rating}} <button class="rating" (click)="changeRating(track,-1)">-</button> <button class="rating" (click)="changeRating(track,1)">+</button></td>
+          <td class="transparent">
+            <button mg-button (click)="deletesong(track.filename)" class="glyphicon glyphicon-minus-sign"></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

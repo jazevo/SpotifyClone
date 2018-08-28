@@ -1,0 +1,25 @@
+<div *ngIf="this.filterService.showSearchComponent == false">
+
+  <div class="box">
+
+    <h3>Alben</h3>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Album Name</th>
+        <th>Artist</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let album of FilteredAlbums; let i = index">
+        <td>{{i+1}}</td>
+        <td routerLink="/song/{{album.album}}" class="pointer">{{album.album}}</td>
+        <td routerLink="/song/{{album.artist}}" class="pointer">{{album.artist}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

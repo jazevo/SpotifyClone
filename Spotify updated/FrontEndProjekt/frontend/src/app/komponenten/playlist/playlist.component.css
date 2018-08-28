@@ -1,0 +1,41 @@
+td.transparent {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  width: 10px;
+}
+
+td.transparent:hover{
+  background-color: #1cd85e;
+  color:white;
+}
+
+button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.pointer:hover{
+  background-color: #2c2c2c;
+  color: white;
+}
+
+
+.rating{
+  border:1px solid;
+  border-radius:5px;
+  float:right;
+  margin-right:2px;
+}
+
+.rating:hover {
+  background-color: #2c2c2c;
+  color: white;
+}

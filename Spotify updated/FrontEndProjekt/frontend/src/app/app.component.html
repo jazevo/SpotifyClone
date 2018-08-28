@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Menu -->
+    <div class="side-menu">
+
+      <img id="logo" src="./assets/logo.svg" class="navBarImage"/>
+
+      <nav role="navigation">
+
+        <input type="text"
+               class="search-query form-control"
+               [(ngModel)]="filter"
+               list="browsers"
+               name="myBrowser"
+               (input)="filterThings()"
+               placeholder="e.g. Schiggy"/>
+        <datalist id="browsers">
+          <option *ngFor="let song of Songs;" value={{song.title}}>
+          <option *ngFor="let playlist of Playlists;" value={{playlist.name}}>
+          <option *ngFor="let artist of Artists;" value={{artist.artist}}>
+          <option *ngFor="let album of Albums;" value={{album.album}}>
+        </datalist>
+
+        <!-- Main Menu -->
+        <div class="side-menu-container">
+          <ul class="nav navbar-nav">
+
+            <li><a routerLink="/artist"><span class="glyphicon glyphicon-user"></span> Artist</a></li>
+            <li><a routerLink="/album"><span class="glyphicon glyphicon-record"></span> Album</a></li>
+            <li><a routerLink="/song"><span class="glyphicon glyphicon-music"></span> Song</a></li>
+            <li class="nonclick"><a disabled></a></li>
+            <li class="nonclick"><a> <span class="glyphicon glyphicon-list-alt"></span> Playlists</a></li>
+            <li><a><span class="glyphicon glyphicon-plus-sign"></span>
+              <button id="add_playlist_btn" mg-button class="link" (click)="openDialog()">ADD PLAYLIST</button>
+            </a></li>
+
+
+            <li *ngFor="let playlist of Playlists; let i = index">
+              <ng-template [ngIf]="map.get(i)!=playlist.name">
+                <a id={{playlist.name}} (drop)="drop(playlist.name)" (dragover)="allowDrop($event)" routerLink="/playlist/{{playlist.name}}">
+                  <button mg-button (click)="deleteplaylist(playlist.name,i)"
+                          class="glyphicon glyphicon-minus-sign"></button>
+                  {{Playlists[i].name}} </a>
+              </ng-template>
+            </li>
+          </ul>
+
+
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="container-fluid">
+      <div class="side-body">
+        <app-song-info></app-song-info>
+        <router-outlet>
+          <div *ngIf="this.filterService.showSearchComponent == true">
+            <app-search-results></app-search-results>
+          </div>
+        </router-outlet>
+      </div>
+      <app-player></app-player>
+    </div>
+  </div>
+</div>
+
+
+

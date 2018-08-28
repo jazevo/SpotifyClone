@@ -1,0 +1,22 @@
+<article class="trackInfoBox">
+  <div *ngIf="this.image == null">
+    <img id="default_picture" src="../../../assets/Awesome_Face.png">
+  </div>
+  <div *ngIf="this.image != null">
+    <img src="data:image/JPEG;base64,{{this.image}}">
+  </div>
+
+  <div class="infoText">
+    <div class="left">
+      <p class="songTitle">{{selectedSong.artist}}</p>
+      <p class="artistName">{{selectedSong.title}}</p>
+    </div>
+
+    <details class="artistinfo" *ngIf="show">
+      <summary>{{artistinfocollapsed}}</summary>
+      <p>{{artistinfo}} </p>
+    </details>
+
+
+  </div>
+</article>

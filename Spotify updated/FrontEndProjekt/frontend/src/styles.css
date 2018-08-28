@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+td{
+  background-color: #181818;
+
+}
+body{
+  background-color: #181818;
+  color: #a0a0a0;
+
+}
+
+h3{
+  color:white;
+}
+
+table {
+  border: none;
+}
+
+.table-striped > tbody > tr:nth-child(n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+  border-color: #2c2c2c;
+}
+.table-striped > thead > tr:nth-child(n+1) >th {
+  border-color: #2c2c2c;
+
+}
+.table-striped > tbody > tr:nth-child(n+1) >td {
+  background-color: #181818;
+
+}

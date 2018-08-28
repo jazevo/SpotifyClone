@@ -1,0 +1,93 @@
+<h3>Artists</h3>
+<table class="table table-striped ">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Artist</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <tr *ngFor="let artist of filteredArtists; let i = index" draggable="true" (dragstart)="dragstart(track)">
+    <td>{{i + 1}}</td>
+    <td routerLink="/album/{{artist.artist}}" class="pointer"> {{artist.artist}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3>Albums</h3>
+<table class="table table-striped ">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Album Name</th>
+    <th>Artist</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <tr *ngFor="let album of filteredAlbums; let i = index" draggable="true" (dragstart)="dragstart(track)">
+    <td>{{i+1}}</td>
+    <td routerLink="/song/{{album.album}}" class="pointer">{{album.album}}</td>
+    <td routerLink="/song/{{album.artist}}" class="pointer">{{album.artist}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3>Songs</h3>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th></th>
+    <th>Song</th>
+    <th>Album</th>
+    <th>Artist</th>
+    <th>Rating</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <tr *ngFor="let track of filteredSongs; let i = index" draggable="true" (dragstart)="dragstart(track)">
+    <td>{{i +1}}</td>
+    <td (click)="playthissong(track)" class="pointer">
+      <div class="glyphicon glyphicon-play-circle"></div>
+    </td>
+    <td>{{track.title}}</td>
+    <td class="pointer"
+        routerLink="/song/{{track.album}}">{{track.album}}
+    </td>
+    <td class="pointer"
+        routerLink="/song/{{track.artist}}">{{track.artist}}
+    </td>
+    <td>{{track.rating}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3>Playlists</h3>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Playlistname</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <tr *ngFor="let playlist of filteredPlaylists; let i = index" draggable="true" (dragstart)="dragstart(track)">
+    <td>{{i + 1}}</td>
+    <td class="pointer" routerLink="/playlist/{{playlist.name}}">{{playlist.name}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+<br>
