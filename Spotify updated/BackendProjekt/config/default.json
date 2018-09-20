@@ -1,4 +1,4 @@
 {
-  "db":"mongodb://localhost:27017/schrotiffyRest",
+  "db":"mongodb://localhost:27017/databasename",
   "port":3000
 }
